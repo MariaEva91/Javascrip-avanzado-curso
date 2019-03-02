@@ -70,8 +70,8 @@ let a = document.querySelector("a");
 
 a.addEventListener("click", e => {
     e.preventDefault()
-    console.log("link!");
-    
+   // console.log("link!");
+
 let texto = document.createElement("p");
 texto.innerText = "Esta seguro que desea salir de la pagina?";
 document.body.appendChild(texto);
@@ -87,6 +87,19 @@ botonAceptar.addEventListener("click",()=>{
 let botonCancelar = document.createElement("button");
 botonCancelar.innerText = "Cancelar";
 document.body.appendChild(botonCancelar);
+
+})
+
+//evento submit
+
+let form = document.querySelector("form");
+form.addEventListener("submit",e =>{
+    e.preventDefault();
+    console.dir(e.target);
+
+    let nombre = e.target[0].value;
+    let email = e.target[1].value;
+    console.log(nombre, email)
 })
 
 
