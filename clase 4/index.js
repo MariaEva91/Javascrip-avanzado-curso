@@ -24,7 +24,6 @@ li.innerText = nombre + " : " + text;
 
 ul.appendChild(li);
 
-
 })
 
 
