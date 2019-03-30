@@ -17,13 +17,13 @@ promesa
         return res.json()
     })
     .then(res => {
-         console.log(res)
+        console.log(res)
         let id = res[4].id
         return fetch(url + "posts?userId=" + id)
     })
     .then(res => {
         return res.json()
-      
+
     })
     .then(res => {
         console.log(res)
@@ -38,13 +38,35 @@ promesa
         console.log(res)//este ya no anda
         let array_de_promesas = []
         res.forEach(response => {
-          array_de_promesas.push(response.json()) 
+            array_de_promesas.push(response.json())
         })
         return Promise.all(array_de_promesas)
     })
-    .then(res=>{
+    .then(res => {
         console.log(res)
     })
     .catch(err => {
         // y aca cuando se haya rechazado
     })
+
+//GEOLOCALIZACION
+
+//mi ubicacion la busco en 
+// navigator.geolocation()
+//buscar mi ubicacion actual
+
+navigator.geolocation.getCurrentPosition((u) => {
+    //  console.log(u)
+    let lat = u.coords.latitude
+    let lon = u.coords.longitude
+
+    fetch("https://nominatim.openstreetmap.org/reverse?format=json&lat=" + lat + "&lon=" + lon)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+        })
+})
+
+//apis bloqueadas
+
+let urls = "https://glosbe.com/gapi/translate?from=es&dest=en&phrase=hola&format=json"
