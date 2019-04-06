@@ -82,14 +82,25 @@ var a = new test
 //mando una propiedad al prototype, metodos cuando quiero que una funcionalidad compartida entre todos
 //asi ocupo un solo lugar y lo usan todos por referencia
 
+//al tener la funcion adentro de persona, puedo jugar con la info publica y privada, del closure
+
 function persona(nombre, edad) {
     //let this ={}
+    //Atributos privados
+    let n = nombre
+    //Atributos publicos
     this.nombre = nombre
     this.edad = edad
-    persona.prototype.saludo = function(){
-        console.log("hola")
+    //metodo publico de instancia
+    this.getNombre = function () {
+        console.log(n)
+    }
+
+    //Metodo publico de clase. lo tiene toda la clase persona.
+    persona.prototype.getNombreProto = function () {
+        console.log(n)
     }
     //return this
 }
 var a = new persona("horacio", 29)
-var b = new persona("juan",45)
+var b = new persona("juan", 45)
