@@ -1,4 +1,4 @@
-///closure
+///Closure
 
 function externa(x) {
     console.log(x)
@@ -9,7 +9,7 @@ function externa(x) {
 
 var a = externa(10)
 a(20)
-//-------------
+//-------------------------------
 
 function usuario(dni) {
     let d = dni
@@ -29,7 +29,7 @@ function foo() {
 }
 foo()
 
-//---
+//--------------------------
 let obj = {
     x: 1,
     fn: function () {
@@ -41,6 +41,8 @@ let obj = {
 }
 obj.fn()
 
+
+//THIS
 //---------------forzar el valor de this
 
 function ctx(a, b) {
@@ -69,6 +71,7 @@ document.addEventListener("click", ctx.bind(null, 1, 2))
 //4)NEW. Crea un objeto nuevo  vacio y ejecuta la funcion que tenga al lado, reasignandole como nuevo contexto ese objeto que creo, al finalziar la ejecucion retorna el nuevo objeto
 
 //new ctx: esto hace el new por atras:!
+
 //var a ={}
 //ctx.apply(a)
 //return a
@@ -104,3 +107,4 @@ function persona(nombre, edad) {
 }
 var a = new persona("horacio", 29)
 var b = new persona("juan", 45)
+var c = new persona("maria",34)
